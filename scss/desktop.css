@@ -452,6 +452,7 @@ nav{
     font-size: 22px;
     cursor: pointer;
     display: none;
+    margin-right: 99px;
   }
   input[type="checkbox"]{
     display: none;
