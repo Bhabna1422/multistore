@@ -1,0 +1,168 @@
+/* TYPEFACES
+-------------------------------------------------------------------------------------------*/
+@mixin passion-one {
+	font-family: 'Passion One', 'Helvetica', 'Arial', cursive, sans-serif;
+	font-weight: 400;
+	text-transform: uppercase;
+}
+@mixin inter {
+	font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+	font-weight: 400;
+}
+@mixin inria-sans {
+	font-family: 'Inria Sans', 'Helvetica', 'Arial', sans-serif;
+	font-weight: 700;
+}
+
+
+
+
+/* TEXT STYLES
+-------------------------------------------------------------------------------------------*/
+@mixin title-1 {
+	@include passion-one;
+	@include font-spacing(42px, 36px);
+	@media only screen and (min-width: $breakpoint) {
+		@include font-spacing(60px, 52px);
+	}
+}
+@mixin copy-1 {
+	@include inter;
+	@include font-spacing(17px, 28px);
+}
+@mixin copy-2 {
+	@include inter;
+	@include font-spacing(16px, 24px);
+}
+@mixin copy-3 {
+	@include inter;
+	@include font-spacing(11px, 16px);
+}
+@mixin vert {
+	@include inter;
+	@include font-spacing(12px, 12px);
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+}
+
+
+
+
+
+/* CSS
+-------------------------------------------------------------------------------------------*/
+@mixin wrap($width, $padding) {
+	width: $width;
+	padding: $padding;
+}
+@mixin font-spacing($font-size, $line-height) {
+	font-size: $font-size;
+	line-height: $line-height;
+}
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	border-radius: $radius;
+}
+@mixin grow {
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	&:after {
+	  content: "";
+		position: absolute;
+	  position: absolute;
+	  bottom: 4px;
+	  left: 0;
+	  width: 0;
+	  border-bottom: 1px solid $white;
+	  @include transition;
+	}
+	&:hover:after {
+	  width: 100%;
+	}
+}
+@mixin grow-reverse {
+	@include grow;
+	&:after {
+	  width: 100%;
+	}
+	&:hover:after {
+	  width: 0;
+	}
+}
+
+
+
+/* FLEX
+------------------------------------------------------------------------------------------*/
+@mixin flex {
+	display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+@mixin flex-vert {
+	@include flex;
+  align-items: center;
+}
+
+
+
+/* KEYFRAMES
+-------------------------------------------------------------------------------------------*/
+@mixin keyframe ($animation_name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+	@-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+@mixin animation ($delay, $duration, $animation) {
+  -webkit-animation-delay: $delay;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-name: $animation;
+  -webkit-animation-fill-mode: both;
+	-webkit-animation-timing-function: ease;
+  -moz-animation-delay: $delay;
+  -moz-animation-duration: $duration;
+  -moz-animation-name: $animation;
+  -moz-animation-fill-mode: both;
+	-moz-animation-timing-function: ease;
+  -o-animation-delay: $delay;
+  -o-animation-duration: $duration;
+  -o-animation-name: $animation;
+  -o-animation-fill-mode: both;
+	-o-animation-timing-function: ease;
+  animation-delay: $delay;
+  animation-duration: $duration;
+  animation-name: $animation;
+  animation-fill-mode: both;
+	animation-timing-function: ease;
+}
+
+
+
+/* ANIMATION
+-------------------------------------------------------------------------------------------*/
+@mixin transition {
+	-webkit-transition: all .4s ease;
+  -moz-transition: all .4s ease;
+  -o-transition: all .4s ease;
+  transition: all .4s ease;
+}
+@mixin reveal {
+	display: block;
+	overflow-y: hidden;
+	span {
+		display: block;
+	}
+}
